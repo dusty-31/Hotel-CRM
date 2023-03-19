@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +8,12 @@
 </head>
 <body>
 <h1>Profile</h1>
+<p>
+    <img src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/users/default_avatar.jpg' %} {% endif %}"
+         alt="avatar" width="200" height="200">
+</p>
+<p>Name: {{ first_name }}</p>
+<p>Surname: {{ last_name }}</p>
+<p>Email: {{ email }}</p>
 </body>
 </html>

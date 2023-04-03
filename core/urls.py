@@ -18,12 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.views import index_view
+from users.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', index_view, name='index'),  # homepage
+    path('', IndexView.as_view(), name='index'),  # homepage
     path('users/', include('users.urls'), name='users'),
 ]
 

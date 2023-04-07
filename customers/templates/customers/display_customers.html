@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+        <ul>
+            <li>{{ message }}</li>
+        </ul>
+    {% endfor %}
+
+{% endif %}
+{% for customer in customers %}
+    <p>
+        {{ customer.first_name }} {{ customer.last_name }}
+        <a href="{% url 'customers:update' customer_id=customer.id %}">Update</a>
+        <a href="{% url 'customers:remove' customer_id=customer.id %}">Remove</a>
+    </p>
+{% endfor %}
+</body>
+</html>

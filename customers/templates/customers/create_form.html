@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Customer create</h1>
-<form method="post" action="{% url 'customers:customer-create' %}">
+<form method="post" action="{% url 'customers:create' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">

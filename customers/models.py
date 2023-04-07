@@ -18,4 +18,4 @@ class Customer(models.Model):
     created_by = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - created by {self.created_by.email}"
+        return f"ID: {self.id} | {self.first_name} {self.last_name} - created by {self.created_by.email}"

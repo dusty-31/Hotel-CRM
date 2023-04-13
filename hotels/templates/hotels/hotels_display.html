@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Hotels</h1>
+{% for hotel in hotels %}
+    {{ hotel.name }}
+    <a href="{% url 'hotels:update' hotel_id=hotel.id %}">Update</a>
+    <a href="{% url 'hotels:remove' hotel_id=hotel.id %}">Remove</a>
+{% endfor %}
+
+</body>
+</html>

@@ -24,7 +24,7 @@ def get_create_hotel_form(request: HttpRequest) -> CreateHotelForm:
     return form
 
 
-def create_hotel(user: User, form: CreateHotelForm):
+def create_hotel(user: User, form: CreateHotelForm) -> None:
     if form.is_valid():
         hotel = form.save(commit=False)
         hotel.owner_id = user.id

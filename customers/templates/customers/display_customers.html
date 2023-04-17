@@ -15,7 +15,7 @@
 {% endif %}
 {% for customer in customers %}
     <p>
-        {{ customer.first_name }} {{ customer.last_name }}
+        <a href="{% url 'customers:display' customer_id=customer.id %}">{{ customer.first_name }} {{ customer.last_name }}</a>
         <a href="{% url 'customers:update' customer_id=customer.id %}">Update</a>
         <a href="{% url 'customers:remove' customer_id=customer.id %}">Remove</a>
     </p>

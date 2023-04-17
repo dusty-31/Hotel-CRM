@@ -14,7 +14,6 @@ class CustomerUpdateForm(forms.ModelForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={"readonly": True}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={"readonly": True}))
     middle_name = forms.CharField(widget=forms.TextInput(attrs={"readonly": True}))
-    # gender = forms.ChoiceField()
     passport_number = forms.CharField(widget=forms.TextInput())
     disability = forms.CharField(widget=forms.TextInput())
 

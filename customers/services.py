@@ -33,7 +33,7 @@ def update_customer(request: HttpRequest, form: CustomerUpdateForm) -> None:
         messages.success(request=request, message="Saved successfully!")
 
 
-def get_customer_create_form(request: HttpRequest) -> CustomerCreateForm:
+def get_create_customer_form(request: HttpRequest) -> CustomerCreateForm:
     if request.method == "POST":
         form = CustomerCreateForm(data=request.POST)
     else:
@@ -42,7 +42,7 @@ def get_customer_create_form(request: HttpRequest) -> CustomerCreateForm:
     return form
 
 
-def get_customer_update_form(request: HttpRequest, customer_id: int) -> CustomerUpdateForm:
+def get_update_customer_form(request: HttpRequest, customer_id: int) -> CustomerUpdateForm:
     customer = get_customer(customer_id=customer_id)
     if request.method == "POST":
         form = CustomerUpdateForm(data=request.POST, instance=customer)

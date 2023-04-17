@@ -1,4 +1,3 @@
-from django.views.generic.base import TemplateView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
@@ -6,16 +5,6 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
 from .forms import UserLoginForm
-
-
-class IndexView(TemplateView):
-    template_name = 'users/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['title'] = "Hotel-CRM"
-
-        return context
 
 
 @login_required

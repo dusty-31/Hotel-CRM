@@ -14,6 +14,13 @@ from .services import (
 )
 
 
+def index_view(request: HttpRequest) -> HttpResponse:
+    context = {
+        'title': 'Hotels CRM - Admin Panel'
+    }
+    return render(request=request, template_name='hotels/index.html', context=context)
+
+
 @login_required
 def display_hotels_view(request: HttpRequest) -> HttpResponse:
     hotels = get_hotels_for_users(user_id=request.user.id)
@@ -50,11 +57,13 @@ def create_hotel_view(request: HttpRequest) -> HttpResponse:
     return render(request=request, template_name='hotels/create_form.html', context=context)
 
 
+@login_required
 def remove_hotel_view(request: HttpRequest, hotel_id: int) -> HttpResponse:
     remove_hotel(hotel_id=hotel_id)
     return HttpResponseRedirect(reverse('hotels:all_display'))
 
 
+@login_required
 def update_hotel_view(request: HttpRequest, hotel_id: int):
     hotel = get_hotel(hotel_id=hotel_id)
     form = get_update_form_for_hotel(request=request, hotel_id=hotel_id)

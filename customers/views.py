@@ -16,7 +16,8 @@ from .services import (
 )
 
 
-def display_one_customer_view(request: HttpRequest, customer_id: int):
+@login_required
+def display_one_customer_view(request: HttpRequest, customer_id: int) -> HttpResponse:
     customer = get_customer(customer_id=customer_id)
 
     context = {

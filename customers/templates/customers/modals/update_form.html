@@ -1,0 +1,42 @@
+<!-- customer update form -->
+<div class="modal fade" id="customer_update" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3><i class="fa fa-user m-r-5"></i> Update Customer</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" method="post" action="">
+                            {% csrf_token %}
+                            <div class="row">
+                                <!-- Text input-->
+                                <div class="col-md-4 form-group">
+                                    <label class="control-label">Customer Name:</label>
+                                    <input type="text" placeholder="First Name" class="form-control"
+                                           value="{{ customer.first_name }}">
+                                    <input type="text" placeholder="Second Name" class="form-control"
+                                           value="{{ customer.last_name }}">
+                                    <input type="text" placeholder="Middle Name" class="form-control"
+                                           value="{{ customer.middle_name }}">
+                                </div>
+                                <div class="col-md-12 form-group user-form-group">
+                                    <div class="float-right">
+                                        <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                        <button type="submit" class="btn btn-add btn-sm">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

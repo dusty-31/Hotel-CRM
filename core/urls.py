@@ -18,12 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.views import IndexView
+from hotels.views import index_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', IndexView.as_view(), name='index'),  # homepage
+    path('', index_view, name='index'),  # homepage
 
     path('users/', include('users.urls'), name='users'),
     path('customers/', include('customers.urls'), name='customers'),
@@ -31,4 +31,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(prefix=settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

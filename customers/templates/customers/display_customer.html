@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-<h1>Customer</h1>
-First name: {{ customer.first_name }}<br>
-Last name: {{ customer.last_name }}<br>
-Middle name: {{ customer.middle_name }}<br>
-Gender: {{ customer.gender }}<br>
-Passport number: {{ customer.passport_number }}<br>
-</body>
-</html>
+{% extends 'hotels/base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+{% block content %}
+    <h1>Customer</h1>
+    First name: {{ customer.first_name }}<br>
+    Last name: {{ customer.last_name }}<br>
+    Middle name: {{ customer.middle_name }}<br>
+    Gender: {{ customer.gender }}<br>
+    Passport number: {{ customer.passport_number }}<br>
+    Status: {{ customer.status }}<br>
+{% endblock %}

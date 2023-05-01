@@ -5,7 +5,7 @@
     <title>{{ title }}</title>
 </head>
 <body>
-<form method="post" action="{% url 'hotels:update' hotel_id=hotel.id %}">
+<form method="post" action="{% url 'hotels:update_hotel' hotel_id=hotel.id %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">

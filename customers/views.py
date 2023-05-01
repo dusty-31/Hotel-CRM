@@ -35,7 +35,7 @@ def display_customers_view(request: HttpRequest) -> HttpResponse:
         'title': "CRM Hotels - Customers",
         'customers': customers,
     }
-    return render(request=request, template_name='customers/display_customers.html', context=context)
+    return render(request=request, template_name='customers/list_customers.html', context=context)
 
 
 @login_required
@@ -44,20 +44,20 @@ def create_customer_view(request: HttpRequest) -> Union[HttpResponse, HttpRespon
     if request.method == "POST":
         create_customer(request=request, user=request.user, form=form)
 
-        return HttpResponseRedirect(reverse('customers:all_display'))
+        return HttpResponseRedirect(reverse('customers:all_customers_display'))
 
     context = {
         'title': 'Hotels CRM - Create customer',
         'form': form,
     }
-    return render(request=request, template_name='customers/create_form.html', context=context)
+    return render(request=request, template_name='customers/add_customer.html', context=context)
 
 
 @login_required
 def remove_customer_view(request: HttpRequest, customer_id: int) -> HttpResponseRedirect:
     remove_customer(request=request, customer_id=customer_id)
 
-    return HttpResponseRedirect(reverse('customers:all_display'))
+    return HttpResponseRedirect(reverse('customers:all_customers_display'))
 
 
 @login_required
@@ -66,11 +66,11 @@ def update_customer_view(request: HttpRequest, customer_id: int) -> Union[HttpRe
     form = get_update_customer_form(request=request, customer_id=customer_id)
     if request.method == "POST":
         update_customer(request=request, form=form)
-        return HttpResponseRedirect(request.META["HTTP_REFERER"])
+        return HttpResponseRedirect(reverse('customers:all_customers_display'))
 
     context = {
         'title': 'Hotels CRM - Update customer',
         "form": form,
         "customer": customer,
     }
-    return render(request=request, template_name='customers/update_form.html', context=context)
+    return render(request=request, template_name='customers/update_customer.html', context=context)

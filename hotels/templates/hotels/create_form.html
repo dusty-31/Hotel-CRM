@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Create hotel</h1>
-<form method="post" action="{% url 'hotels:create' %}">
+<form method="post" action="{% url 'hotels:create_hotel' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">

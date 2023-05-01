@@ -48,7 +48,7 @@ def create_hotel_view(request: HttpRequest) -> HttpResponse:
     form = get_create_hotel_form(request=request)
     if request.method == "POST":
         create_hotel(user=request.user, form=form)
-        return HttpResponseRedirect(reverse('hotels:all_display'))
+        return HttpResponseRedirect(reverse('hotels:all_hotels_display'))
 
     context = {
         'title': 'Hotels CRM - Create Hotel',
@@ -60,7 +60,7 @@ def create_hotel_view(request: HttpRequest) -> HttpResponse:
 @login_required
 def remove_hotel_view(request: HttpRequest, hotel_id: int) -> HttpResponse:
     remove_hotel(hotel_id=hotel_id)
-    return HttpResponseRedirect(reverse('hotels:all_display'))
+    return HttpResponseRedirect(reverse('hotels:all_hotels_display'))
 
 
 @login_required
@@ -69,7 +69,7 @@ def update_hotel_view(request: HttpRequest, hotel_id: int):
     form = get_update_form_for_hotel(request=request, hotel_id=hotel_id)
     if request.method == "POST":
         update_hotel(form=form)
-        return HttpResponseRedirect(reverse('hotels:all_display'))
+        return HttpResponseRedirect(reverse('hotels:all_hotels_display'))
 
     context = {
         'title': 'Hotel CRM - Update hotel',

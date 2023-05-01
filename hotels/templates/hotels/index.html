@@ -1,15 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-<h1>Homepage</h1>
-{% if user.is_authenticated %}
-    <h3>Login is successful</h3>
-{% else %}
-    <h3>Please login to your account</h3>
-{% endif %}
-</body>
-</html>
+{% extends 'hotels/base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+{% block page_label_plugins %}
+    <!-- Emojionearea -->
+    <link href="{% static 'plugins/emojionearea/emojionearea.min.css' %}" rel="stylesheet"/>
+    <!-- Monthly css -->
+    <link href="{% static 'plugins/monthly/monthly.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block theme_layout_style %}
+    <link href="{% static 'dist/css/stylecrm.css' %}" rel="stylesheet"/>
+    <!-- Theme style rtl -->
+    <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />-->
+    <!-- End Theme Layout Style -->
+{% endblock %}
+
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-dashboard"></i>
+        </div>
+        <div class="header-title">
+            <h1>Hotels CRM Admin Dashboard</h1>
+            <small>Very detailed & featured admin.</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <a href="{% url 'customers:create_customer' %}">
+                    <div id="cardbox1">
+                        <div class="statistic-box">
+                            <i class="fa fa-users fa-3x"></i>
+                            <div class="counter-number pull-right">
+                                <span class="count-number">11</span>
+                                <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                            </div>
+                            <h3> Active Customers</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <a href="{% url 'hotels:create_hotel' %}">
+                    <div id="cardbox2">
+                        <div class="statistic-box">
+                            <i class="fa fa-building fa-3x" aria-hidden="true"></i>
+                            <div class="counter-number pull-right">
+                                <span class="count-number">4</span>
+                                <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                            </div>
+                            <h3> Hotels</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox3">
+                    <div class="statistic-box">
+                        <i class="fa fa-money fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <i class="ti ti-money"></i><span class="count-number">965</span>
+                            <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                        </div>
+                        <h3> Total Expenses</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-3">
+                <div id="cardbox4">
+                    <div class="statistic-box">
+                        <i class="fa fa-files-o fa-3x"></i>
+                        <div class="counter-number pull-right">
+                            <span class="count-number">11</span>
+                            <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                        </div>
+                        <h3> Running Projects</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js_scripts %}
+    <script>
+        function dash() {
+            //counter
+            $('.count-number').counterUp({
+                delay: 10,
+                time: 5000
+            });
+        }
+
+        dash();
+    </script>
+{% endblock %}

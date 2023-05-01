@@ -1,0 +1,90 @@
+{% extends 'hotels/base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+{% block page_label_plugins %}
+    <!-- Emojionearea -->
+    <link href="{% static 'plugins/emojionearea/emojionearea.min.css' %}" rel="stylesheet"/>
+    <!-- Monthly css -->
+    <link href="{% static 'plugins/monthly/monthly.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block theme_layout_style %}
+    <link href="{% static 'dist/css/stylecrm.css' %}" rel="stylesheet"/>
+    <!-- Theme style rtl -->
+    <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />-->
+{% endblock %}
+
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="header-title">
+            <h1>Add Customer</h1>
+            <small>Customer list</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card lobicard all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="card-title custom_title">
+                            <a class="btn btn-add" href="{% url 'customers:all_customers_display' %}"><i
+                                    class="fa fa-list"></i>
+                                Customer List </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="col-sm-6" method="post" action="{% url 'customers:update_customer' customer_id=customer.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                                {{ form.first_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                                {{ form.last_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.middle_name.id_for_label }}">Middle Name</label>
+                                {{ form.middle_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.passport_number.id_for_label }}">Passport Number</label>
+                                {{ form.passport_number }}
+                            </div>
+                            <div class="form-group">
+                                <label>Sex</label><br>
+                                {% for radio in form.gender %}
+                                    <label class="radio-inline">
+                                        {{ radio.tag }} {{ radio.choice_label }}
+                                    </label>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group">
+                                <label>Disability</label><br>
+                                {% for radio in form.disability %}
+                                    <label class="radio-inline">
+                                        {{ radio.tag }} {{ radio.choice_label }}
+                                    </label>
+                                {% endfor %}
+
+                            </div>
+                            <div class="reset-button">
+                                <input class="btn btn-success" type="submit" value="Update">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+{% endblock %}

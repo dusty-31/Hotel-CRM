@@ -1,0 +1,436 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <!-- Favicon and touch icons -->
+    <link href="{% static 'dist/img/ico/favicon.png' %}" rel="shortcut icon" type="image/x-icon">
+    <!-- Start Global Mandatory Style
+       =====================================================================-->
+    <!-- lobicard tather css -->
+    <link href="{% static 'plugins/lobipanel/css/tether.min.css' %}" rel="stylesheet"/>
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <!-- lobicard tather css -->
+    <link href="{% static 'plugins/lobipanel/css/jquery-ui.min.css' %}" rel="stylesheet"/>
+    <!-- lobicard min css -->
+    <link href="{% static 'plugins/lobipanel/css/lobicard.min.css' %}" rel="stylesheet"/>
+    <!-- lobicard GitHub css -->
+    <link href="{% static 'plugins/lobipanel/css/github.css' %}" rel="stylesheet"/>
+    <!-- Pace css -->
+    <link href="{% static 'plugins/pace/flash.css' %}" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"/>
+    <!-- Pe-icon -->
+    <link href="{% static 'pe-icon-7-stroke/css/pe-icon-7-stroke.css' %}" rel="stylesheet"/>
+    <!-- Themify icons -->
+    <link href="{% static 'themify-icons/themify-icons.css' %}" rel="stylesheet"/>
+    <!-- End Global Mandatory Style
+       =====================================================================-->
+    <!-- Start page Label Plugins
+       =====================================================================-->
+    {% block page_label_plugins %} {% endblock %}
+    <!-- End page Label Plugins
+          =====================================================================-->
+    <!-- Start Theme Layout Style
+    =====================================================================-->
+    {% block theme_layout_style %} {% endblock %}
+    <!-- End Theme Layout Style
+       =====================================================================-->
+</head>
+<body class="hold-transition sidebar-mini">
+<!--preloader-->
+<div id="preloader">
+    <div id="status"></div>
+</div>
+<div class="wrapper">
+    <header class="main-header">
+        <a href="{% url 'index' %}" class="logo">
+            <!-- Logo -->
+            <span class="logo-mini">
+            <img src="{% static 'dist/img/mini-logo.png' %}" alt="">
+        </span>
+            <span class="logo-lg">
+            <img src="{% static 'dist/img/logo.png' %}" alt="">
+        </span>
+        </a>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-expand py-0">
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <!-- Sidebar toggle button-->
+                <span class="sr-only">Toggle navigation</span>
+                <span class="pe-7s-angle-left-circle"></span>
+            </a>
+            <!-- searchbar-->
+            <a href="#search"><span class="pe-7s-search"></span></a>
+            <div id="search">
+                <button type="button" class="close">×</button>
+                <form>
+                    <input type="search" value="" placeholder="Search.."/>
+                    <button type="submit" class="btn btn-add">Search...</button>
+                </form>
+            </div>
+            <div class="collapse navbar-collapse navbar-custom-menu">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Orders -->
+                    <li class="nav-item dropdown messages-menu">
+                        <a class="nav-link admin-notification" href="#" role="button" data-toggle="dropdown">
+                            <i class="pe-7s-cart"></i>
+                            <span class="label bg-primary">5</span>
+                        </a>
+                        <div class="dropdown-menu drop_drop custom_drop_scroll">
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/basketball-jersey.png' %}"
+                                             class="img-thumbnail"
+                                             alt="User Image">
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>polo shirt</h4>
+                                        <p><strong>total item:</strong> 21
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/shirt.png' %}" class="img-thumbnail"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Kits</h4>
+                                        <p><strong>total item:</strong> 11
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/football.png' %}" class="img-thumbnail"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Football</h4>
+                                        <p><strong>total item:</strong> 16
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/shoe.png' %}" class="img-thumbnail"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Sports sheos</h4>
+                                        <p><strong>total item:</strong> 10
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- Messages -->
+                    <li class="nav-item dropdown messages-menu">
+                        <a class="nav-link admin-notification" href="#" role="button" data-toggle="dropdown">
+                            <i class="pe-7s-mail"></i>
+                            <span class="label bg-success">5</span>
+                        </a>
+                        <div class="dropdown-menu drop_drop custom_drop_scroll">
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/avatar.png' %}" class="rounded-circle"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Ronaldo</h4>
+                                        <p>Please oreder 10 pices of kits..</p>
+                                        <span class="badge badge-success badge-massege"><small>15 hours ago</small>
+                                 </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item pull-left">
+                                        <img src="{% static 'dist/img/avatar2.png' %}" class="rounded-circle"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Leo messi</h4>
+                                        <p>Please oreder 10 pices of Sheos..</p>
+                                        <span class="badge badge-info badge-massege"><small>6 days ago</small>
+                                 </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menue">
+                                    <div class="left_item">
+                                        <img src="{% static 'dist/img/avatar3.png' %}" class="rounded-circle"
+                                             alt="User Image"/>
+                                    </div>
+                                    <div class="right_item">
+                                        <h4>Modric</h4>
+                                        <p>Please oreder 6 pices of bats..</p>
+                                        <span class="badge badge-info badge-massege"><small>1 hour ago</small>
+                                 </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- Notifications -->
+                    <li class="nav-item dropdown notifications-menu">
+                        <a class="nav-link admin-notification" href="#" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="pe-7s-bell"></i>
+                            <span class="label bg-warning">5</span>
+                        </a>
+                        <div class="dropdown-menu drop_drops custom_drop_scroll">
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        Change Your font style</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        check the system status..</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        Add more admin...</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        Add more clients and order</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        Add more admin...</p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menues">
+                                    <p>
+                                        <i class="fa fa-dot-circle-o color-red"></i>
+                                        Add more clients and order</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- Tasks -->
+                    <li class="nav-item dropdown tasks-menu">
+                        <a class="nav-link admin-notification" href="#" role="button" data-toggle="dropdown">
+                            <i class="pe-7s-note2"></i>
+                            <span class="label bg-danger">5</span>
+                        </a>
+                        <div class="dropdown-menu drop_dropr custom_drop_scroll">
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> Theme color should be <span><span
+                                                class="label label-success float-right">50%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> Fix Error and bugs <span><span
+                                                class="label label-warning float-right">90%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> Sidebar color change <span><span
+                                                class="label label-danger float-right">80%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> font-family should be <span><span
+                                                class="label label-info float-right">30%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> Fix the database Error <span><span
+                                                class="label label-success float-right">60%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <div class="menuers">
+                                    <div class="single_menuers_item">
+                                        <h3><i class="fa fa-check-circle"></i> data table data missing <span><span
+                                                class="label label-info float-right">20%</span></span></h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- Help -->
+                    <li class="nav-item dropdown  dropdown-help">
+                        <a class="nav-link hidden_hidden" href="#" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="pe-7s-settings"></i></a>
+
+                        <div class="dropdown-menu drop_down">
+                            <div class="menus">
+                                <a class="dropdown-item" href="#"> <i class="fa fa-line-chart"></i> Networking</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa fa-bullhorn"></i> Lan settings</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-bar-chart"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-wifi"></i> wifi</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- User -->
+                    <li class="nav-item dropdown dropdown-user">
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <img src="{% static 'dist/img/avatar5.png' %}" class="rounded-circle" width="50"
+                                 height="50"
+                                 alt="user"></a>
+
+                        <div class="dropdown-menu drop_down">
+                            <div class="menus">
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> User Profile</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-inbox"></i> Inbox</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Signout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- =============================================== -->
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <!-- sidebar menu -->
+            {% with current_url=request.resolver_match.url_name %}
+                <ul class="sidebar-menu">
+                    <li class="{% if current_url == 'index' %} active {% else %} treeview {% endif %}">
+                        <p>Current URL: {{ current_url }}</p>
+                        <p>Current user: {{ user.username }}</p>
+                        <a href="{% url 'index' %}"><i class="fa fa-tachometer"></i><span>Dashboard</span>
+                            <span class="pull-right-container">
+                     </span>
+                        </a>
+                    </li>
+                    <li class="{% if current_url == 'create_customer' or current_url == 'all_customers_display'  %} treeview active {% else %} treeview {% endif %}">
+                        <a href="#">
+                            <i class="fa fa-users"></i><span>Customers</span>
+                            <span class="pull-right-container">
+                     <i class="fa fa-angle-left float-right"></i>
+                     </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li {% if current_url == 'create_customer' %} class="active" {% endif %}>
+                                <a href="{% url 'customers:create_customer' %}">Add customer</a>
+                            </li>
+                            <li {% if current_url == 'all_customers_display' %} class="active" {% endif %}>
+                                <a href="{% url 'customers:all_customers_display' %}">List customers</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            {% endwith %}
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+    <!-- =============================================== -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        {% block content %} {% endblock %}
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Dusty</a>.</strong> All rights reserved.
+    </footer>
+</div>
+
+<!-- /. wrapper -->
+<!-- Start Core Plugins
+   =====================================================================-->
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jQuery/jquery-1.12.4.min.js' %}"></script>
+<!-- Bootstrap proper -->
+<script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+<!-- lobicard ui min js -->
+<script src="{% static 'plugins/lobipanel/js/jquery-ui.min.js' %}"></script>
+<!-- lobicard ui touch-punch-improved js -->
+<script src="{% static 'plugins/lobipanel/js/jquery.ui.touch-punch-improved.js' %}"></script>
+<!-- lobicard tether min js -->
+<script src="{% static 'plugins/lobipanel/js/tether.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- lobicard js -->
+<script src="{% static 'plugins/lobipanel/js/lobicard.js' %}"></script>
+<!-- lobicard highlight js -->
+<script src="{% static 'plugins/lobipanel/js/highlight.js' %}"></script>
+<!-- Pace js -->
+<script src="{% static 'plugins/pace/pace.min.js' %}"></script>
+<!-- NIceScroll -->
+<script src="{% static 'plugins/slimScroll/jquery.nicescroll.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'plugins/fastclick/fastclick.min.js' %}"></script>
+<!-- CRMadmin frame -->
+<script src="{% static 'dist/js/custom.js' %}"></script>
+<!-- End Core Plugins
+   =====================================================================-->
+<!-- Start Page Lavel Plugins
+   =====================================================================-->
+<!-- ChartJs JavaScript -->
+<script src="{% static 'plugins/chartJs/Chart.min.js' %}"></script>
+<!-- Counter js -->
+<script src="{% static 'plugins/counterup/waypoints.js' %}"></script>
+<script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+<!-- Monthly js -->
+<script src="{% static 'plugins/monthly/monthly.js' %}"></script>
+<!-- End Page Lavel Plugins
+   =====================================================================-->
+<!-- Start Theme label Script
+   =====================================================================-->
+<!-- Dashboard js -->
+<script src="{% static 'dist/js/dashboard.js' %}"></script>
+<!-- End Theme label Script
+   =====================================================================-->
+
+<script>
+    {% block js_scripts %} {% endblock %}
+</script>
+</body>
+</html>

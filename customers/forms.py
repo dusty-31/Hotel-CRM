@@ -2,12 +2,12 @@ from django import forms
 
 from .models import Customer
 
-DISABILITY_CHOICES = [
-    (True, 'Yes'), (False, 'No')
-]
-
 
 class CustomerForm(forms.ModelForm):
+    DISABILITY_CHOICES = [
+        (True, 'Yes'), (False, 'No')
+    ]
+
     first_name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': 'Enter First Name',

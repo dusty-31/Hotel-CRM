@@ -349,12 +349,12 @@
                      </span>
                         </a>
                     </li>
-                    <li class="{% if current_url == 'create_customer' or current_url == 'all_customers_display'  %} treeview active {% else %} treeview {% endif %}">
+                    <li class="{% if current_url == 'create_customer' or current_url == 'all_customers_display' %} treeview active {% else %} treeview {% endif %}">
                         <a href="#">
                             <i class="fa fa-users"></i><span>Customers</span>
                             <span class="pull-right-container">
-                     <i class="fa fa-angle-left float-right"></i>
-                     </span>
+                                 <i class="fa fa-angle-left float-right"></i>
+                            </span>
                         </a>
                         <ul class="treeview-menu">
                             <li {% if current_url == 'create_customer' %} class="active" {% endif %}>
@@ -362,6 +362,22 @@
                             </li>
                             <li {% if current_url == 'all_customers_display' %} class="active" {% endif %}>
                                 <a href="{% url 'customers:all_customers_display' %}">List customers</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{% if current_url == 'create_hotel' or current_url == 'all_hotels_display' %} treeview active {% else %} treeview {% endif %}">
+                        <a href="#">
+                            <i class="fa fa-building fa-3x" aria-hidden="true"></i><span>Hotels</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left float-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li {% if current_url == 'create_hotel' %} class="active" {% endif %}>
+                                <a href="{% url 'hotels:create_hotel' %}">Create hotel</a>
+                            </li>
+                            <li {% if current_url == 'all_hotels_display' %} class="active" {% endif %}>
+                                <a href="{% url 'hotels:all_hotels_display' %}">List hotels</a>
                             </li>
                         </ul>
                     </li>

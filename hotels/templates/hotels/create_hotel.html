@@ -4,19 +4,6 @@
 
 {{ title }}
 
-{% block page_label_plugins %}
-    <!-- Emojionearea -->
-    <link href="{% static 'plugins/emojionearea/emojionearea.min.css' %}" rel="stylesheet"/>
-    <!-- Monthly css -->
-    <link href="{% static 'plugins/monthly/monthly.css' %}" rel="stylesheet"/>
-{% endblock %}
-
-{% block theme_layout_style %}
-    <link href="{% static 'dist/css/stylecrm.css' %}" rel="stylesheet"/>
-    <!-- Theme style rtl -->
-    <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />-->
-{% endblock %}
-
 {% block content %}
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -61,7 +48,8 @@
                                 {{ form.price_double_type_room }}
                             </div>
                             <div class="form-group">
-                                <label for="{{ form.price_president_type_room.id_for_label }}">Price president room</label>
+                                <label for="{{ form.price_president_type_room.id_for_label }}">Price president
+                                    room</label>
                                 {{ form.price_president_type_room }}
                             </div>
                             <div class="reset-button">

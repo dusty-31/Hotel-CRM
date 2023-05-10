@@ -29,7 +29,7 @@ def display_hotels_view(request: HttpRequest) -> HttpResponse:
         'title': "Hotels CRM - My hotels",
         'hotels': hotels,
     }
-    return render(request=request, template_name='hotels/hotels_display.html', context=context)
+    return render(request=request, template_name='hotels/list_hotels.html', context=context)
 
 
 @login_required
@@ -54,7 +54,7 @@ def create_hotel_view(request: HttpRequest) -> HttpResponse:
         'title': 'Hotels CRM - Create Hotel',
         'form': form,
     }
-    return render(request=request, template_name='hotels/create_form.html', context=context)
+    return render(request=request, template_name='hotels/create_hotel.html', context=context)
 
 
 @login_required
@@ -76,4 +76,4 @@ def update_hotel_view(request: HttpRequest, hotel_id: int):
         'hotel': hotel,
         'form': form,
     }
-    return render(request=request, template_name='hotels/update_form.html', context=context)
+    return render(request=request, template_name='hotels/update_hotel.html', context=context)

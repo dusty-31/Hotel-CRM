@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-from .forms import UserLoginForm
+from users.services import get_user_login_form, verification_user
 
 
 @login_required
@@ -19,20 +19,16 @@ def user_profile_view(request: HttpRequest) -> HttpResponse:
 
 
 def user_login_view(request: HttpRequest) -> HttpResponse:
-    if request.method == 'POST':
-        form = UserLoginForm(data=request.POST)
-        if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = auth.authenticate(username=username, password=password)
-            if user:
-                auth.login(request=request, user=user)
-                return HttpResponseRedirect(reverse('users:profile'))
-    else:
-        form = UserLoginForm()
+    form = get_user_login_form(request=request)
+    if request.method == "POST":
+        verification_user(request=request, form=form)
+        return HttpResponseRedirect(reverse('users:profile'))
+
     context = {
+        'title': 'Hotels CRM - Login',
         'form': form,
     }
+
     return render(request=request, template_name='users/login.html', context=context)
 
 

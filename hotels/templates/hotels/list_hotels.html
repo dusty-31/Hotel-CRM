@@ -1,0 +1,97 @@
+{% extends 'hotels/base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-building"></i>
+        </div>
+        <div class="header-title">
+            <h1>Hotels</h1>
+            <small>Hotels List</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 pinpin">
+                <div class="card lobicard" data-sortable="true">
+                    <div class="card-header">
+                        <div class="card-title custom_title">
+                            <h4>Create hotel</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="btn-group d-flex" role="group">
+                            <div class="buttonexport" id="buttonlist">
+                                <a class="btn btn-add" href="{% url 'hotels:create_hotel' %}"> <i
+                                        class="fa fa-plus"></i> Create new hotel
+                                </a>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>Logotype</th>
+                                    <th>Hotel name</th>
+                                    <th>Hotel type</th>
+                                    <th>Price for a single room</th>
+                                    <th>Price for a double room</th>
+                                    <th>Price for a president room</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for hotel in hotels %}
+                                    <tr>
+                                        <td>
+                                            <img src="#" class="img-circle"
+                                                 alt="Hotel logo"
+                                                 width="50" height="50">
+                                        </td>
+                                        <td>
+                                            {{ hotel.name }}
+                                        </td>
+                                        <td>
+                                            {{ hotel.type }}
+                                        </td>
+                                        <td>
+                                            {{ hotel.price_single_type_room }} $
+                                        </td>
+                                        <td>
+                                            {{ hotel.price_double_type_room }} $
+                                        </td>
+                                        <td>
+                                            {{ hotel.price_president_type_room }} $
+                                        </td>
+                                        <td>
+                                            <a type="submit" class="btn btn-add btn-sm"
+                                               href="{% url 'hotels:update_hotel' hotel_id=hotel.id %}">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a type="submit" class="btn btn-danger btn-sm"
+                                               href="{% url 'hotels:remove_hotel' hotel_id=hotel.id %}">
+                                                <i class=" fa fa-trash-o"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js_scripts %}
+<!-- dataTables js -->
+    <script src="{% static 'plugins/datatables/dataTables.min.js' %}"></script>
+{% endblock %}

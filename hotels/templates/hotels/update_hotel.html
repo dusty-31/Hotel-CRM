@@ -1,0 +1,62 @@
+{% extends 'hotels/base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="header-icon">
+            <i class="fa fa-building"></i>
+        </div>
+        <div class="header-title">
+            <h1>Update hotel</h1>
+            <small>Hotels list</small>
+        </div>
+    </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-sm-12">
+                <div class="card lobicard all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                    <div class="card-header all_card_btn">
+                        <div class="card-title custom_title">
+                            <a class="btn btn-add" href="{% url 'hotels:all_hotels_display' %}"><i
+                                    class="fa fa-list"></i>
+                                Hotels List </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form class="col-sm-6" method="post" action="{% url 'hotels:update_hotel' hotel_id=hotel.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="{{ hotel.id_for_label }}">Name</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.price_single_type_room.id_for_label }}">Price single room</label>
+                                {{ form.price_single_type_room }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.price_double_type_room.id_for_label }}">Price double room</label>
+                                {{ form.price_double_type_room }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.price_president_type_room.id_for_label }}">Price president
+                                    room</label>
+                                {{ form.price_president_type_room }}
+                            </div>
+                            <div class="reset-button">
+                                <a href="#" class="btn btn-warning"> Reset</a>
+                                <input class="btn btn-success" type="submit" value="Save">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+{% endblock %}

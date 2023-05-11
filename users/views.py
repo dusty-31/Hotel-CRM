@@ -32,6 +32,7 @@ def user_login_view(request: HttpRequest) -> HttpResponse:
     return render(request=request, template_name='users/login.html', context=context)
 
 
+@login_required
 def logout_view(request: HttpRequest) -> HttpResponseRedirect:
     auth.logout(request=request)
     return HttpResponseRedirect(reverse('index'))

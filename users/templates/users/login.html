@@ -1,16 +1,71 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title }}</title>
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="{% static 'dist/img/ico/favicon.png' %}" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <!-- Pe-icon-7-stroke -->
+    <link href="{% static 'pe-icon-7-stroke/css/pe-icon-7-stroke.css' %}" rel="stylesheet"/>
+    <!-- style css -->
+    <link href="{% static 'dist/css/stylecrm.css' %}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Login</h1>
-<form method="post" action="{% url 'users:login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+<!-- Content Wrapper -->
+<div class="login-wrapper">
+    <div class="back-link">
+        <a href="{% url 'index' %}" class="btn btn-add">Back to Dashboard</a>
+    </div>
+    <div class="container-center">
+        <div class="login-area">
+            <div class="card panel-custom">
+                <div class="card-heading custom_head">
+                    <div class="view-header">
+                        <div class="header-icon">
+                            <i class="pe-7s-unlock"></i>
+                        </div>
+                        <div class="header-title">
+                            <h3>Login</h3>
+                            <small><strong>Please enter your credentials to login.</strong></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'users:login' %}" id="loginForm">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
+                            {{ form.username }}
+                            <span class="help-block small">Your unique username to app</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password">Password</label>
+                            {{ form.password }}
+                            <span class="help-block small">Your strong password</span>
+                        </div>
+                        <div>
+                            <button class="btn green_btn">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+<!-- jQuery -->
+<script src="{% static 'plugins/jQuery/jquery-1.12.4.min.js' %}"></script>
+<!-- Bootstrap proper -->
+<script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{{ title }}
-
 {% block content %}
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -40,17 +38,35 @@
                                 {{ form.type }}
                             </div>
                             <div class="form-group">
-                                <label for="{{ form.price_single_type_room.id_for_label }}">Price single room</label>
+                                <label for="{{ form.price_single_type_room.id_for_label }}">
+                                    Price single room
+                                </label>
                                 {{ form.price_single_type_room }}
                             </div>
                             <div class="form-group">
-                                <label for="{{ form.price_double_type_room.id_for_label }}">Price double room</label>
+                                <label for="{{ form.price_double_type_room.id_for_label }}">
+                                    Price double room
+                                </label>
                                 {{ form.price_double_type_room }}
                             </div>
                             <div class="form-group">
-                                <label for="{{ form.price_president_type_room.id_for_label }}">Price president
-                                    room</label>
+                                <label for="{{ form.price_president_type_room.id_for_label }}">
+                                    Price president room
+                                </label>
                                 {{ form.price_president_type_room }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.activities.id_for_label }}">Activities</label>
+                                <div class="row">
+                                    {% for choice in form.activities %}
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="{{ choice.id_for_label }}"></label>
+                                                {{ choice }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                             <div class="reset-button">
                                 <a href="#" class="btn btn-warning"> Reset</a>

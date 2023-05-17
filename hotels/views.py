@@ -14,6 +14,7 @@ from .services import (
 )
 
 
+@login_required
 def index_view(request: HttpRequest) -> HttpResponse:
     context = {
         'title': 'Hotels CRM - Admin Panel'

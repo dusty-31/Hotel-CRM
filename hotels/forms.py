@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Hotel, HotelType
+from .models import Hotel, HotelType, Activity
 
 
 class CreateHotelForm(forms.ModelForm):
@@ -21,6 +21,10 @@ class CreateHotelForm(forms.ModelForm):
     price_president_type_room = forms.IntegerField(widget=forms.NumberInput(attrs={
         'class': 'form-control',
     }))
+    activities = forms.ModelMultipleChoiceField(
+        queryset=Activity.objects.all(),
+        widget=forms.CheckboxSelectMultiple(),
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,7 +32,8 @@ class CreateHotelForm(forms.ModelForm):
 
     class Meta:
         model = Hotel
-        fields = ['name', 'type', 'price_single_type_room', 'price_double_type_room', 'price_president_type_room']
+        fields = ['name', 'type', 'price_single_type_room', 'price_double_type_room', 'price_president_type_room',
+                  'activities']
 
 
 class UpdateHotelForm(forms.ModelForm):

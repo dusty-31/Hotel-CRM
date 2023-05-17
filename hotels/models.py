@@ -5,13 +5,7 @@ from users.models import User
 
 class Activity(models.Model):
     name = models.CharField(max_length=150)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-class Loss(models.Model):
-    name = models.CharField(max_length=150)
+    rating = models.DecimalField(max_digits=2, decimal_places=2)
 
     def __str__(self):
         return f"{self.name}"
@@ -34,7 +28,6 @@ class Hotel(models.Model):
     type = models.ForeignKey(to=HotelType, on_delete=models.CASCADE)
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
     activities = models.ManyToManyField(to=Activity, through='HotelActivity')
-    loss = models.ManyToManyField(to=Loss, through='HotelLoss')
     price_single_type_room = models.DecimalField(max_digits=10, decimal_places=2)
     price_double_type_room = models.DecimalField(max_digits=10, decimal_places=2)
     price_president_type_room = models.DecimalField(max_digits=10, decimal_places=2)
@@ -51,14 +44,6 @@ class HotelActivity(models.Model):
 
     def __str__(self):
         return f"{self.hotel.name} - {self.activity.name}"
-
-
-class HotelLoss(models.Model):
-    hotel = models.ForeignKey(to=Hotel, on_delete=models.CASCADE)
-    loss = models.ForeignKey(to=Loss, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.hotel.name} - {self.loss.name}"
 
 
 class RoomType(models.Model):

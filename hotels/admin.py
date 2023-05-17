@@ -7,8 +7,6 @@ from .models import (
     Room,
     Activity,
     HotelActivity,
-    Loss,
-    HotelLoss,
 )
 
 
@@ -39,14 +37,4 @@ class ActivityAdmin(admin.ModelAdmin):
 
 @admin.register(HotelActivity)
 class HotelActivityAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Loss)
-class LossAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(HotelLoss)
-class HotelLossAdmin(admin.ModelAdmin):
     pass

@@ -29,6 +29,7 @@ def create_hotel(user: User, form: CreateHotelForm) -> None:
         hotel = form.save(commit=False)
         hotel.owner_id = user.id
         hotel.save()
+        form.save_m2m()
         _create_rooms_for_hotel(hotel=hotel)
 
 
